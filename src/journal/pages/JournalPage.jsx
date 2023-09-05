@@ -1,12 +1,13 @@
 
 import { Typography } from "@mui/material"
 import { JournalLayout } from "../layout/JournalLayout"
+import { NothingSelectedView } from "../views"
 
 
 export const JournalPage = () => {
   return (
     <JournalLayout>
-    <Typography>Saliste ya mil veces
+    {/* <Typography>Saliste ya mil veces
 de la pista a respirar
 a reclutar, bien maquillado
 y ocultando tu lunar.
@@ -38,9 +39,9 @@ y vos resplandecías
 no te quedó sueño por vengar
 y ya no esper s que te jueguen limpio
 nunca más.
-</Typography>
+</Typography> */}
+<NothingSelectedView/>
 
-{/* Nothing selected */}
 {/* note view */}
     </JournalLayout>
   )
