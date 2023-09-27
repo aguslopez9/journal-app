@@ -1,10 +1,11 @@
-import { checkingCredentials } from "./"
+import { registerUserEmailPassword, signInWithGoogle } from "../../firebase/provider"
+import { checkingCredentials, logout, login } from "./"
 
 
 export const checkingAuthentication = (email, password) => {
     return async(dispatch) => {
 
-        dispatch(checkingCredentials())
+        dispatch(checkingCredentials());
 
     }
 }
@@ -12,7 +13,23 @@ export const checkingAuthentication = (email, password) => {
 export const startGoogleSignIn = () => {
     return async(dispatch) => {
 
-        dispatch(checkingCredentials())
+        dispatch(checkingCredentials());
 
+       const result = await signInWithGoogle();
+       if (!result.ok) return dispatch( logout(result.errorMessage) );
+
+       dispatch(login(result))
     }
+}
+
+export const startCreatingUserEmailPassword = ({email, password, displayName}) => {
+    return async(dispatch) => {
+        dispatch(checkingCredentials());
+
+        const resp = await registerUserEmailPassword({email, password, displayName});
+
+        console.log(resp)
+    }
+
+
 }
