@@ -49,7 +49,7 @@ export const startLoginEmailPassword = ({email, password}) => {
     }
 }
 
-export const startLogout = ({}) => {
+export const startLogout = () => {
     return async(dispatch) => {
         await logoutFirebase();
 
